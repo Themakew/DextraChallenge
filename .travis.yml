@@ -1,5 +1,5 @@
 language: swift
 osx_image: xcode12
-xcode_project: FastNews.xcodeproj
-xcode_scheme: FastNews
+xcode_project: Fast News.xcodeproj
+xcode_scheme: Fast News
 xcode_destination: platform=iOS Simulator,OS=14,name=iPhone 11 Pro
