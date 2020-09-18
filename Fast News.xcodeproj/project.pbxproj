@@ -139,6 +139,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5FF39D1625156D6800D8B168 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				E7AFEA9A23445CDA00C2E4C3 /* CommentCell.xib */,
+				E789E8C8232F4A250091660E /* FeedCell.xib */,
+			);
+			path = Layout;
+			sourceTree = "<group>";
+		};
 		88DC123899ABD84787C1E823 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -294,12 +303,11 @@
 		E789E8C5232F49E80091660E /* Feed */ = {
 			isa = PBXGroup;
 			children = (
+				5FF39D1625156D6800D8B168 /* Layout */,
 				E7EC2F32233302FC009F41B0 /* FeedView.swift */,
 				E7EC2F342333030D009F41B0 /* FeedDetailsView.swift */,
 				E789E8C7232F4A250091660E /* FeedCell.swift */,
-				E789E8C8232F4A250091660E /* FeedCell.xib */,
 				E7AFEA9923445CDA00C2E4C3 /* CommentCell.swift */,
-				E7AFEA9A23445CDA00C2E4C3 /* CommentCell.xib */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -333,6 +341,7 @@
 				E789E884232F47A40091660E /* Frameworks */,
 				E789E885232F47A40091660E /* Resources */,
 				E1781DA01B7B602677C6A208 /* [CP] Embed Pods Frameworks */,
+				5FF39D2225156E9E00D8B168 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -388,7 +397,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1030;
-				LastUpgradeCheck = 1030;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Lucas Moreton";
 				TargetAttributes = {
 					E789E886232F47A40091660E = {
@@ -475,6 +484,23 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		5FF39D2225156E9E00D8B168 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
 		775EB513435D177E4F23C606 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -644,6 +670,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -705,6 +732,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -741,6 +769,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Fast News/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -759,6 +788,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Fast News/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

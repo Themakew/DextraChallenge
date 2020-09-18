@@ -8,13 +8,14 @@
 import Foundation
 import Alamofire
 
-//MARK: - Type alias
+// MARK: - Type alias
+
 typealias HotNewsCallback = ( () throws -> [HotNews]) -> Void
 typealias HotNewsCommentsCallback = ( () throws -> [Comment]) -> Void
 
 class HotNewsProvider {
     
-    //MARK: - Constants
+    // MARK: - Constants
     
     // Hot News endpoint
     private let kHotNewsEndpoint = "/r/ios/hot/.json"
@@ -27,18 +28,18 @@ class HotNewsProvider {
     private let kAfterKey = "after"
     private let kAfterValue = ""
     
-    //MARK: - Singleton
+    // MARK: - Singleton
     
     static let shared: HotNewsProvider = HotNewsProvider()
     
-    //MARK: - Public Methods
+    // MARK: - Public Methods
     
     func hotNews(completion: @escaping HotNewsCallback) {
         let alamofire = APIProvider.shared.sessionManager
         let requestString = APIProvider.shared.baseURL() + kHotNewsEndpoint
         
-        let parameters: Parameters = [ kLimitKey : kLimitValue,
-                                       kAfterKey : kAfterValue ]
+        let parameters: Parameters = [ kLimitKey: kLimitValue,
+                                       kAfterKey: kAfterValue ]
         
         do {
             let requestURL = try requestString.asURL()
@@ -71,10 +72,8 @@ class HotNewsProvider {
                     }
                     
                     completion { return hotNewsArray }
-                    break
                 case .failure(let error):
                     completion { throw error }
-                    break
                 }
             }
         } catch {
@@ -120,10 +119,8 @@ class HotNewsProvider {
                     }
                     
                     completion { return commentsArray }
-                    break
                 case .failure(let error):
                     completion { throw error }
-                    break
                 }
             }
         } catch {

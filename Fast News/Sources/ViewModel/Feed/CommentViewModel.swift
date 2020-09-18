@@ -9,7 +9,7 @@ import Foundation
 
 struct CommentViewModel {
     
-    //MARK: - Properties
+    // MARK: - Properties
     
     var author: String
     var createdAt: String

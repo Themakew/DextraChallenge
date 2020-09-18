@@ -10,7 +10,7 @@ import UIKit
 
 struct HotNewsViewModel {
     
-    //MARK: - Properties
+    // MARK: - Properties
     
     var id: String
     var author: String

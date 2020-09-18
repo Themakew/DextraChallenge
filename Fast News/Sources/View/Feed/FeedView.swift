@@ -13,7 +13,7 @@ protocol FeedViewDelegate {
 
 class FeedView: UIView {
     
-    //MARK: - Properties
+    // MARK: - Properties
     
     @IBOutlet weak var tableView: UITableView!
     var viewModels: [HotNewsViewModel] = [HotNewsViewModel]() {
@@ -23,7 +23,7 @@ class FeedView: UIView {
     }
     var delegate: FeedViewDelegate?
     
-    //MARK: - Public Methods
+    // MARK: - Public Methods
     
     func setup(with viewModels: [HotNewsViewModel], and delegate: FeedViewDelegate) {
         tableView.register(UINib(nibName: "FeedCell", bundle: Bundle.main), forCellReuseIdentifier: "FeedCell")

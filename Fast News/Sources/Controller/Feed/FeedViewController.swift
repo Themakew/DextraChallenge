@@ -10,11 +10,11 @@ import UIKit
 
 class FeedViewController: UIViewController {
     
-    //MARK: - Constants
+    // MARK: - Constants
     
     let kToDetails: String = "toDetails"
     
-    //MARK: - Properties
+    // MARK: - Properties
     
     var hotNews: [HotNews] = [HotNews]() {
         didSet {

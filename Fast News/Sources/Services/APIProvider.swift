@@ -9,16 +9,16 @@ import Alamofire
 
 class APIProvider {
     
-    //MARK: - Constants
+    // MARK: - Constants
     
     private let kBaseURL = "https://www.reddit.com"
     private let kTimeout = 30
     
-    //MARK: - Properties
+    // MARK: - Properties
     
     let sessionManager: Alamofire.SessionManager
     
-    //MARK: - Public Methods
+    // MARK: - Public Methods
     
     func baseURL() -> String {
         return kBaseURL
@@ -28,7 +28,7 @@ class APIProvider {
         return [:]
     }
     
-    //MARK: - Singleton
+    // MARK: - Singleton
     
     static let shared = APIProvider()
     

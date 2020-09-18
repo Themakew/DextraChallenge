@@ -9,7 +9,7 @@ import UIKit
 
 class FeedDetailsViewController: UIViewController {
     
-    //MARK: - Properties
+    // MARK: - Properties
     
     var hotNewsViewModel: HotNewsViewModel?
     
@@ -35,7 +35,6 @@ class FeedDetailsViewController: UIViewController {
         }
         return view
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()

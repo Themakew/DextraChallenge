@@ -1,0 +1,80 @@
+whitelist_rules:
+
+  - comma
+  #There should be no space before and one after any comma.
+
+  - colon
+  #Colons should be next to the identifier when specifying a type and next to the key in dictionary literals.
+
+  - control_statement
+  #if,for,while,do,catch statements shouldn't wrap their conditionals or arguments in parentheses.
+
+  - closure_spacing
+  #Closure expressions should have a single space inside each brace.
+
+#  - empty_string
+  #Prefer checking isEmpty over comparing string to an empty string literal.
+
+  - opening_brace
+  #Opening braces should be preceded by a single space and on the same line as the declaration.
+
+  - redundant_discardable_let
+  #Prefer _ = foo() over let _ = foo() when discarding a result from a function.
+
+  - closing_brace
+  #Closing brace with closing parenthesis should not have any whitespaces in the middle.
+
+  - return_arrow_whitespace
+  #Return arrow and return type should be separated by a single space or on a separate line.
+
+  - statement_position
+  #Else and catch should be on the same line, one space after the previous declaration.
+
+  - mark
+  # MARK comment should be in valid format. e.g. '// MARK: ...' or '// MARK: - ...'
+
+  - empty_parentheses_with_trailing_closure
+  #When using trailing closures, empty parentheses should be avoided after the method call.
+
+  - operator_usage_whitespace
+  #Operators should be surrounded by a single whitespace when they are being used.
+
+  - redundant_nil_coalescing
+  #nil coalescing operator is only evaluated if the lhs is nil, coalescing operator with nil as rhs is redundant
+
+  - redundant_optional_initialization
+  #Initializing an optional variable with nil is redundant.
+
+  - redundant_void_return
+  #Returning Void in a function declaration is redundant.
+
+  - trailing_comma
+  #Trailing commas in arrays and dictionaries should be avoided/enforced.
+
+  - trailing_newline
+  #Files should have a single trailing newline.
+
+  - trailing_semicolon
+  #Lines should not have trailing semicolons.
+
+  - vertical_whitespace
+  #Limit vertical whitespace to a single empty line
+
+  - fallthrough
+  #Fallthrough should be avoided.
+
+  - unneeded_break_in_switch
+  #Avoid using unneeded break statements.
+
+  - todo
+  # TODOs and FIXMEs should be resolved.
+
+  - collection_alignment
+  - duplicate_enum_cases
+  - duplicate_imports
+  - dynamic_inline
+  - empty_collection_literal
+
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+  - Carthage
+  - Pods

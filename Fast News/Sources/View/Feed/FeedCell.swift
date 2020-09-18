@@ -10,7 +10,7 @@ import UIKit
 @IBDesignable
 class FeedCell: UITableViewCell {
     
-    //MARK: - Properties
+    // MARK: - Properties
     
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var createdAtLabel: UILabel!
@@ -19,7 +19,7 @@ class FeedCell: UITableViewCell {
     @IBOutlet weak var commentsLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     
-    //MARK: - Public Methods
+    // MARK: - Public Methods
     
     func setup(hotNewsViewModel: HotNewsViewModel) {
         authorLabel.text = hotNewsViewModel.author

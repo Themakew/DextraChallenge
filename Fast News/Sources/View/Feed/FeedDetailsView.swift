@@ -9,7 +9,7 @@ import UIKit
 
 class FeedDetailsView: UIView {
     
-    //MARK: - Properties
+    // MARK: - Properties
     
     @IBOutlet weak var tableView: UITableView!
     var viewModels: [TypeProtocol] = [TypeProtocol]() {
@@ -19,7 +19,7 @@ class FeedDetailsView: UIView {
     }
     var delegate: FeedViewDelegate?
     
-    //MARK: - Public Methods
+    // MARK: - Public Methods
     
     func setup(with viewModels: [TypeProtocol], and delegate: FeedViewDelegate) {
         tableView.estimatedRowHeight = 400

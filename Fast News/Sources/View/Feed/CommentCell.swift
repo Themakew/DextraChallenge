@@ -9,7 +9,7 @@ import UIKit
 
 class CommentCell: UITableViewCell {
     
-    //MARK: - Properties
+    // MARK: - Properties
     
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var createdAtLabel: UILabel!
@@ -17,7 +17,7 @@ class CommentCell: UITableViewCell {
     @IBOutlet weak var upsLabel: UILabel!
     @IBOutlet weak var downsLabel: UILabel!
     
-    //MARK: - Public Methods
+    // MARK: - Public Methods
     
     func setup(commentViewModel: CommentViewModel) {
         authorLabel.text = commentViewModel.author
