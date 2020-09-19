@@ -20,6 +20,7 @@ class FeedCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var commentsLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var scoreDownLabel: UILabel!
     
     // MARK: - Override Methods -
     
@@ -41,6 +42,7 @@ class FeedCell: UITableViewCell {
         thumbnailImageView.image = hotNewsViewModel.image
         titleLabel.text = hotNewsViewModel.title
         commentsLabel.text = hotNewsViewModel.comments
-        scoreLabel.text = hotNewsViewModel.score
+        scoreLabel.text = hotNewsViewModel.up
+        scoreDownLabel.text = hotNewsViewModel.down
     }
 }

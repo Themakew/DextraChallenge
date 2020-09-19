@@ -29,9 +29,9 @@
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="u3g-VF-wwF">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="u3g-VF-wwF">
                         <rect key="frame" x="16" y="38.5" width="288" height="114"/>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Motorola One Action Review: A Worthy Competitor to the Xiaomi Mi A3" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V2O-pn-70g">
                         <rect key="frame" x="20" y="160.5" width="280" height="33.5"/>
@@ -79,7 +79,7 @@
                                         <rect key="frame" x="132" y="0.0" width="132" height="34"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_up" translatesAutoresizingMaskIntoConstraints="NO" id="iDX-sP-JHO">
-                                                <rect key="frame" x="25" y="2" width="30" height="30"/>
+                                                <rect key="frame" x="11" y="2" width="30" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="PmN-J7-oN0"/>
                                                     <constraint firstAttribute="width" secondItem="iDX-sP-JHO" secondAttribute="height" multiplier="1:1" id="zm3-ae-wkU"/>
@@ -91,13 +91,13 @@
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="999+" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IOO-Hc-ecW">
-                                                <rect key="frame" x="57" y="11" width="26" height="12"/>
+                                                <rect key="frame" x="43" y="11" width="26" height="12"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_down" translatesAutoresizingMaskIntoConstraints="NO" id="Ly1-ix-838">
-                                                <rect key="frame" x="85" y="2" width="30" height="30"/>
+                                                <rect key="frame" x="71" y="2" width="30" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="Ly1-ix-838" secondAttribute="height" multiplier="1:1" id="2kS-Wg-JBf"/>
                                                     <constraint firstAttribute="height" constant="30" id="vHQ-bY-aHL"/>
@@ -108,14 +108,23 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="999+" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tpd-oS-2g2">
+                                                <rect key="frame" x="103" y="11" width="26" height="12"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="Ly1-ix-838" firstAttribute="centerY" secondItem="IOO-Hc-ecW" secondAttribute="centerY" id="7EW-td-naN"/>
                                             <constraint firstItem="IOO-Hc-ecW" firstAttribute="centerY" secondItem="iDX-sP-JHO" secondAttribute="centerY" id="ApI-WD-zVm"/>
+                                            <constraint firstItem="tpd-oS-2g2" firstAttribute="leading" secondItem="Ly1-ix-838" secondAttribute="trailing" constant="2" id="EHo-qu-RUo"/>
+                                            <constraint firstItem="tpd-oS-2g2" firstAttribute="centerY" secondItem="Ly1-ix-838" secondAttribute="centerY" id="Haw-nu-LSm"/>
                                             <constraint firstItem="iDX-sP-JHO" firstAttribute="centerY" secondItem="TXy-yr-fgd" secondAttribute="centerY" id="SXt-bF-gYW"/>
-                                            <constraint firstItem="iDX-sP-JHO" firstAttribute="centerX" secondItem="TXy-yr-fgd" secondAttribute="centerX" constant="-26" id="gwt-37-pG2"/>
+                                            <constraint firstItem="iDX-sP-JHO" firstAttribute="centerX" secondItem="TXy-yr-fgd" secondAttribute="centerX" constant="-40" id="gwt-37-pG2"/>
                                             <constraint firstItem="IOO-Hc-ecW" firstAttribute="leading" secondItem="iDX-sP-JHO" secondAttribute="trailing" constant="2" id="h5t-IK-mar"/>
+                                            <constraint firstItem="tpd-oS-2g2" firstAttribute="centerY" secondItem="iDX-sP-JHO" secondAttribute="centerY" id="kTF-3h-hPX"/>
                                             <constraint firstItem="Ly1-ix-838" firstAttribute="leading" secondItem="IOO-Hc-ecW" secondAttribute="trailing" constant="2" id="pmp-XV-4s6"/>
                                         </constraints>
                                     </view>
@@ -165,6 +174,7 @@
                 <outlet property="authorLabel" destination="ahJ-bU-GsH" id="Kww-J0-xWp"/>
                 <outlet property="commentsLabel" destination="iEF-VB-Cly" id="J3k-XI-xws"/>
                 <outlet property="createdAtLabel" destination="nM3-k8-qWl" id="2Oj-dt-MKu"/>
+                <outlet property="scoreDownLabel" destination="tpd-oS-2g2" id="qWf-PR-Wca"/>
                 <outlet property="scoreLabel" destination="IOO-Hc-ecW" id="Izj-YC-JDd"/>
                 <outlet property="thumbnailImageView" destination="u3g-VF-wwF" id="xID-zX-GnK"/>
                 <outlet property="titleLabel" destination="V2O-pn-70g" id="QM9-55-YDk"/>

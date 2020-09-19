@@ -12,6 +12,7 @@ import Alamofire
 
 typealias HotNewsCallback = ( () throws -> [HotNews]) -> Void
 typealias HotNewsCommentsCallback = ( () throws -> [Comment]) -> Void
+typealias HotNewsImageCallBack = ( () throws -> Data) -> Void
 
 class HotNewsProvider {
     
@@ -121,6 +122,27 @@ class HotNewsProvider {
                     completion { throw error }
                 }
             }
+        } catch {
+            completion { throw error }
+        }
+    }
+    
+    func getHotNewsImage(url: String, completion: @escaping HotNewsImageCallBack) {
+        do {
+            let requestURL = try url.asURL()
+            
+            alamofire.request(requestURL).responseData(completionHandler: { (response) in
+                switch response.result {
+                case .success:
+                    if let data = response.data {
+                        completion { return data }
+                    } else {
+                        completion { return NSData() as Data }
+                    }
+                case .failure(let error):
+                    completion { throw error }
+                }
+            })
         } catch {
             completion { throw error }
         }

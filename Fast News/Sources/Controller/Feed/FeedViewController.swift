@@ -81,6 +81,23 @@ class FeedViewController: UIViewController {
 // MARK: - FeedViewDelegate -
 
 extension FeedViewController: FeedViewDelegate {
+    func getImage(imageUrl: String, completionHandler: @escaping (UIImage) -> Void) {
+        let emptyImage = UIImage(named: "no_image")!
+
+        HotNewsProvider.shared.getHotNewsImage(url: imageUrl) { (completion) in
+            do {
+                let data = try completion()
+                let image = UIImage(data: data) ?? emptyImage
+                
+                completionHandler(image)
+            } catch {
+                let emptyImage = UIImage(named: "no_image")!
+                
+                completionHandler(emptyImage)
+            }
+        }
+    }
+    
     func didGetInTheBottom() {
         fetchFeed()
     }
