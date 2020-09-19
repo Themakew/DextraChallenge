@@ -18,14 +18,18 @@ class FeedViewController: UIViewController {
     
     // MARK: - Properties -
     
-    var hotNews: [HotNews] = [HotNews]() {
+    private var viewModels: [HotNewsViewModel] = [HotNewsViewModel]()
+    
+    var newHotNews: [HotNews] = [HotNews]() {
         didSet {
-            var viewModels: [HotNewsViewModel] = [HotNewsViewModel]()
-            _ = hotNews.map { (news) in
-                viewModels.append(HotNewsViewModel(hotNews: news))
+            var newViewModels: [HotNewsViewModel] = [HotNewsViewModel]()
+            
+            _ = newHotNews.map { (news) in
+                newViewModels.append(HotNewsViewModel(hotNews: news))
             }
             
-            self.mainView.setup(with: viewModels, and: self)
+            viewModels.append(contentsOf: newViewModels)
+            self.mainView.viewModels = self.viewModels
         }
     }
     
@@ -38,13 +42,16 @@ class FeedViewController: UIViewController {
     
     private var baseNumberOfNews: Int = 5
     
+    // MARK: - Override Methods -
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationItem.title = "Fast News"
         navigationController?.navigationBar.prefersLargeTitles = true
         
-        fetchFeed(numberOfNews: baseNumberOfNews)
+        fetchFeed()
+        mainView.setup(with: viewModels, and: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -54,27 +61,28 @@ class FeedViewController: UIViewController {
         detailViewController.hotNewsViewModel = hotNewsViewModel
     }
     
-    private func fetchFeed(numberOfNews: Int) {
-        HotNewsProvider.shared.hotNews(kLimitValue: numberOfNews.description) { (completion) in
+    // MARK: - Private Methods -
+    
+    private func fetchFeed() {
+        HotNewsProvider.shared.hotNews { [weak self] (completion) in
+            guard let self = self else { return }
+            
             do {
                 let hotNews = try completion()
                 
-                self.hotNews = hotNews
+                self.newHotNews = hotNews
             } catch {
                 print(error.localizedDescription)
             }
         }
     }
-    
-    private func getNumberOfNews() -> Int {
-        baseNumberOfNews += 5
-        return baseNumberOfNews
-    }
 }
+
+// MARK: - FeedViewDelegate -
 
 extension FeedViewController: FeedViewDelegate {
     func didGetInTheBottom() {
-        fetchFeed(numberOfNews: self.getNumberOfNews())
+        fetchFeed()
     }
     
     func didTouch(cell: FeedCell, indexPath: IndexPath) {

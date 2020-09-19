@@ -21,7 +21,7 @@ class HotNewsProvider {
     private let kLimitKey = "limit"
     private let kLimitValue = 5
     private let kAfterKey = "after"
-    private let kAfterValue = ""
+    private var kAfterValue = ""
     
     private let alamofire = APIProvider.shared.sessionManager
     
@@ -31,7 +31,7 @@ class HotNewsProvider {
     
     // MARK: - Public Methods -
     
-    func hotNews(kLimitValue: String, completion: @escaping HotNewsCallback) {
+    func hotNews(completion: @escaping HotNewsCallback) {
         let requestString = APIProvider.shared.baseURL() + EndPoint.kHotNewsEndpoint.path
         
         let parameters: Parameters = [ kLimitKey: kLimitValue,
@@ -48,10 +48,13 @@ class HotNewsProvider {
                 case .success:
                     
                     guard let hotNewsDict = response.result.value as? [String: AnyObject],
+                          let hotNewsAfterString = hotNewsDict["data"]?["after"] as? String,
                           let dictArray = hotNewsDict["data"]?["children"] as? [[String: AnyObject]] else {
                         completion { return [HotNews]() }
                         return
                     }
+                    
+                    self.kAfterValue = hotNewsAfterString
                     
                     var hotNewsArray: [HotNews] = [HotNews]()
                     

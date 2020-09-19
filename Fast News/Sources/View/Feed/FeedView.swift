@@ -24,12 +24,17 @@ extension FeedViewDelegate {
 
 class FeedView: UIView {
     
+    // MARK: - Constants -
+    
+    let activityIndicatorView = UIActivityIndicatorView()
+    
     // MARK: - Properties
     
     @IBOutlet weak var tableView: UITableView!
     
     var viewModels: [HotNewsViewModel] = [HotNewsViewModel]() {
         didSet {
+            tableView.backgroundView = nil
             tableView.reloadData()
         }
     }
@@ -43,8 +48,9 @@ class FeedView: UIView {
         self.delegate = delegate
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.backgroundView = activityIndicatorView
         
-        self.viewModels = viewModels
+        activityIndicatorView.startAnimating()
     }
 }
 
@@ -79,13 +85,11 @@ extension FeedView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let footerView = UIActivityIndicatorView()
-        footerView.startAnimating()
-        
-        return footerView
+        return activityIndicatorView
     }
     
     func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
+        activityIndicatorView.startAnimating()
         delegate?.didGetInTheBottom()
     }
 }
