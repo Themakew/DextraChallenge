@@ -7,6 +7,8 @@
 
 import UIKit
 
+// MARK: -
+
 class CommentCell: UITableViewCell {
     
     // MARK: - Properties
@@ -17,15 +19,17 @@ class CommentCell: UITableViewCell {
     @IBOutlet weak var upsLabel: UILabel!
     @IBOutlet weak var downsLabel: UILabel!
     
-    // MARK: - Public Methods
+    // MARK: - Override Methods -
     
-    func setup(commentViewModel: CommentViewModel) {
-        authorLabel.text = commentViewModel.author
-        createdAtLabel.text = commentViewModel.createdAt
-        commentLabel.text = commentViewModel.body
-        upsLabel.text = commentViewModel.ups
-        downsLabel.text = commentViewModel.downs
+    override func prepareForReuse() {
+        authorLabel.text = nil
+        createdAtLabel.text = nil
+        commentLabel.text = nil
+        upsLabel.text = nil
+        downsLabel.text = nil
     }
+    
+    // MARK: - Public Methods
     
     func setup(viewModel: TypeProtocol) {
         guard let commentViewModel = viewModel as? CommentViewModel else { return }

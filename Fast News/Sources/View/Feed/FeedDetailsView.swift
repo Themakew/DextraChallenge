@@ -7,21 +7,29 @@
 
 import UIKit
 
+// MARK: -
+
 class FeedDetailsView: UIView {
     
-    // MARK: - Properties
+    // MARK: - Constants -
+    
+    let activityIndicatorView = UIActivityIndicatorView()
+    
+    // MARK: - Properties -
     
     @IBOutlet weak var tableView: UITableView!
+    
     var viewModels: [TypeProtocol] = [TypeProtocol]() {
         didSet {
+            tableView.backgroundView = nil
             tableView.reloadData()
         }
     }
     var delegate: FeedViewDelegate?
     
-    // MARK: - Public Methods
+    // MARK: - Public Methods -
     
-    func setup(with viewModels: [TypeProtocol], and delegate: FeedViewDelegate) {
+    func setup(delegate: FeedViewDelegate) {
         tableView.estimatedRowHeight = 400
         tableView.rowHeight = UITableView.automaticDimension
         
@@ -31,10 +39,13 @@ class FeedDetailsView: UIView {
         self.delegate = delegate
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.backgroundView = activityIndicatorView
         
-        self.viewModels = viewModels
+        activityIndicatorView.startAnimating()
     }
 }
+
+// MARK: - UITableViewDelegate, UITableViewDataSource -
 
 extension FeedDetailsView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

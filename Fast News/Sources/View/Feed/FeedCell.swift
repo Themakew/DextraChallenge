@@ -7,10 +7,12 @@
 
 import UIKit
 
+// MARK: -
+
 @IBDesignable
 class FeedCell: UITableViewCell {
     
-    // MARK: - Properties
+    // MARK: - Properties -
     
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var createdAtLabel: UILabel!
@@ -19,16 +21,18 @@ class FeedCell: UITableViewCell {
     @IBOutlet weak var commentsLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     
-    // MARK: - Public Methods
+    // MARK: - Override Methods -
     
-    func setup(hotNewsViewModel: HotNewsViewModel) {
-        authorLabel.text = hotNewsViewModel.author
-        createdAtLabel.text = hotNewsViewModel.createdAt
-        thumbnailImageView.image = hotNewsViewModel.image
-        titleLabel.text = hotNewsViewModel.title
-        commentsLabel.text = hotNewsViewModel.comments
-        scoreLabel.text = hotNewsViewModel.score
+    override func prepareForReuse() {
+        authorLabel.text = nil
+        createdAtLabel.text = nil
+        thumbnailImageView.image = nil
+        titleLabel.text = nil
+        commentsLabel.text = nil
+        scoreLabel.text = nil
     }
+    
+    // MARK: - Public Methods -
     
     func setup(viewModel: TypeProtocol) {
         guard let hotNewsViewModel = viewModel as? HotNewsViewModel else { return }

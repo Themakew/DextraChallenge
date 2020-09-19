@@ -7,16 +7,18 @@
 
 import UIKit
 
+// MARK: -
+
 class FeedDetailsViewController: UIViewController {
     
-    // MARK: - Properties
+    // MARK: - Properties -
     
     var hotNewsViewModel: HotNewsViewModel?
     
+    private var viewModels: [TypeProtocol] = [TypeProtocol]()
+    
     var comments: [Comment] = [Comment]() {
         didSet {
-            var viewModels: [TypeProtocol] = [TypeProtocol]()
-            
             if let hotNews = hotNewsViewModel {
                 viewModels.append(hotNews)
             }
@@ -25,7 +27,7 @@ class FeedDetailsViewController: UIViewController {
                 viewModels.append(CommentViewModel(comment: comment))
             }
             
-            self.mainView.setup(with: viewModels, and: self)
+            self.mainView.viewModels = self.viewModels
         }
     }
     
@@ -36,12 +38,22 @@ class FeedDetailsViewController: UIViewController {
         return view
     }
     
+    // MARK: - Override Methods -
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationItem.largeTitleDisplayMode = .never
-        
-        HotNewsProvider.shared.hotNewsComments(id: hotNewsViewModel?.id ?? "") { (completion) in
+        fetchNewsDetail()
+        mainView.setup(delegate: self)
+    }
+    
+    // MARK: - Private Methods -
+    
+    private func fetchNewsDetail() {
+        HotNewsProvider.shared.hotNewsComments(id: hotNewsViewModel?.id ?? "") { [weak self] (completion) in
+            guard let self = self else { return }
+            
             do {
                 let comments = try completion()
                 
@@ -52,6 +64,8 @@ class FeedDetailsViewController: UIViewController {
         }
     }
 }
+
+// MARK: - FeedViewDelegate -
 
 extension FeedDetailsViewController: FeedViewDelegate {
     func didTouch(cell: FeedCell, indexPath: IndexPath) {

@@ -42,7 +42,7 @@ class FeedView: UIView {
     
     // MARK: - Public Methods
     
-    func setup(with viewModels: [HotNewsViewModel], and delegate: FeedViewDelegate) {
+    func setup(delegate: FeedViewDelegate) {
         tableView.register(UINib(nibName: "FeedCell", bundle: Bundle.main), forCellReuseIdentifier: "FeedCell")
         
         self.delegate = delegate
@@ -69,7 +69,7 @@ extension FeedView: UITableViewDelegate, UITableViewDataSource {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "FeedCell", for: indexPath) as? FeedCell else { fatalError("Cell is not of type FeedCell!") }
         
-        cell.setup(hotNewsViewModel: viewModels[indexPath.row])
+        cell.setup(viewModel: viewModels[indexPath.row])
         
         return cell
     }
@@ -89,7 +89,9 @@ extension FeedView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
-        activityIndicatorView.startAnimating()
-        delegate?.didGetInTheBottom()
+        if viewModels.count > 0 {
+            activityIndicatorView.startAnimating()
+            delegate?.didGetInTheBottom()
+        }
     }
 }

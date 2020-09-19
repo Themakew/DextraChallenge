@@ -51,7 +51,7 @@ class FeedViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         
         fetchFeed()
-        mainView.setup(with: viewModels, and: self)
+        mainView.setup(delegate: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
