@@ -8,9 +8,11 @@
 import Foundation
 import UIKit
 
+// MARK: -
+
 struct HotNewsViewModel {
     
-    // MARK: - Properties
+    // MARK: - Properties -
     
     var id: String
     var author: String
@@ -20,6 +22,8 @@ struct HotNewsViewModel {
     var score: String
     var url: String
     var image: UIImage
+    
+    // MARK: - Init -
     
     init(hotNews: HotNews) {
         id = hotNews.id ?? ""
@@ -38,6 +42,8 @@ struct HotNewsViewModel {
         image = UIImage(data: data) ?? UIImage()
     }
 }
+
+// MARK: - Extension -
 
 extension HotNewsViewModel: TypeProtocol {
     var type: Type { return .hotNews }

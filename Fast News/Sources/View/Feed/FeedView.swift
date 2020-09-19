@@ -7,15 +7,27 @@
 
 import UIKit
 
+// MARK: - Protocol -
+
 protocol FeedViewDelegate {
     func didTouch(cell: FeedCell, indexPath: IndexPath)
+    func didGetInTheBottom()
 }
+
+// MARK: - Extension -
+
+extension FeedViewDelegate {
+    func didGetInTheBottom() {}
+}
+
+// MARK: -
 
 class FeedView: UIView {
     
     // MARK: - Properties
     
     @IBOutlet weak var tableView: UITableView!
+    
     var viewModels: [HotNewsViewModel] = [HotNewsViewModel]() {
         didSet {
             tableView.reloadData()
@@ -36,6 +48,8 @@ class FeedView: UIView {
     }
 }
 
+// MARK: - UITableViewDelegate, UITableViewDataSource -
+
 extension FeedView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModels.count
@@ -46,6 +60,7 @@ extension FeedView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "FeedCell", for: indexPath) as? FeedCell else { fatalError("Cell is not of type FeedCell!") }
         
         cell.setup(hotNewsViewModel: viewModels[indexPath.row])
@@ -61,5 +76,16 @@ extension FeedView: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.cellForRow(at: indexPath) as? FeedCell else { fatalError("Cell is not of type FeedCell!") }
         
         delegate?.didTouch(cell: cell, indexPath: indexPath)
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let footerView = UIActivityIndicatorView()
+        footerView.startAnimating()
+        
+        return footerView
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
+        delegate?.didGetInTheBottom()
     }
 }

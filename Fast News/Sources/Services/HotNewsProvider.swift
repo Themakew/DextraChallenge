@@ -15,12 +15,7 @@ typealias HotNewsCommentsCallback = ( () throws -> [Comment]) -> Void
 
 class HotNewsProvider {
     
-    // MARK: - Constants
-    
-    // Hot News endpoint
-    private let kHotNewsEndpoint = "/r/ios/hot/.json"
-    // Comments endpoint
-    private let kCommentsEndpoint = "/r/ios/comments/@.json"
+    // MARK: - Properties -
     
     // Hot News key/value parameters
     private let kLimitKey = "limit"
@@ -28,15 +23,16 @@ class HotNewsProvider {
     private let kAfterKey = "after"
     private let kAfterValue = ""
     
-    // MARK: - Singleton
+    private let alamofire = APIProvider.shared.sessionManager
+    
+    // MARK: - Singleton -
     
     static let shared: HotNewsProvider = HotNewsProvider()
     
-    // MARK: - Public Methods
+    // MARK: - Public Methods -
     
-    func hotNews(completion: @escaping HotNewsCallback) {
-        let alamofire = APIProvider.shared.sessionManager
-        let requestString = APIProvider.shared.baseURL() + kHotNewsEndpoint
+    func hotNews(kLimitValue: String, completion: @escaping HotNewsCallback) {
+        let requestString = APIProvider.shared.baseURL() + EndPoint.kHotNewsEndpoint.path
         
         let parameters: Parameters = [ kLimitKey: kLimitValue,
                                        kAfterKey: kAfterValue ]
@@ -82,8 +78,7 @@ class HotNewsProvider {
     }
     
     func hotNewsComments(id: String, completion: @escaping HotNewsCommentsCallback) {
-        let alamofire = APIProvider.shared.sessionManager
-        let endpoint = kCommentsEndpoint.replacingOccurrences(of: "@", with: id)
+        let endpoint = EndPoint.kCommentsEndpoint(id: id).path
         let requestString = APIProvider.shared.baseURL() + endpoint
         
         do {
