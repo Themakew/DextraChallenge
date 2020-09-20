@@ -76,12 +76,7 @@ extension FeedDetailsView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch viewModels[indexPath.row].type {
-        case .hotNews:
-            return 400.0
-        default:
-            return 100.0
-        }
+        return UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

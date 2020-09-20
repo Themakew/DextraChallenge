@@ -32,9 +32,12 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="u3g-VF-wwF">
                         <rect key="frame" x="16" y="38.5" width="288" height="114"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="114" id="F2z-Ua-qUT"/>
+                        </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Motorola One Action Review: A Worthy Competitor to the Xiaomi Mi A3" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V2O-pn-70g">
-                        <rect key="frame" x="20" y="160.5" width="280" height="33.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Motorola One Action Review: A Worthy Competitor to the Xiaomi Mi A3" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V2O-pn-70g">
+                        <rect key="frame" x="20" y="162.5" width="280" height="31.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -149,21 +152,21 @@
                     </view>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="trailingMargin" secondItem="V2O-pn-70g" secondAttribute="trailing" constant="4" id="0eA-st-alw"/>
                     <constraint firstAttribute="bottom" secondItem="jPc-ex-5e8" secondAttribute="bottom" constant="8" id="4w4-zJ-1F5"/>
                     <constraint firstItem="nM3-k8-qWl" firstAttribute="firstBaseline" secondItem="ahJ-bU-GsH" secondAttribute="firstBaseline" id="7zw-Dc-itR"/>
                     <constraint firstAttribute="bottom" secondItem="mx0-WY-ylC" secondAttribute="bottom" id="8t6-z1-e5c"/>
-                    <constraint firstItem="V2O-pn-70g" firstAttribute="leading" secondItem="u3g-VF-wwF" secondAttribute="leading" constant="4" id="BAd-Vl-Epn"/>
+                    <constraint firstItem="V2O-pn-70g" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="4" id="CJG-5Z-yaH"/>
                     <constraint firstItem="nM3-k8-qWl" firstAttribute="leading" secondItem="ahJ-bU-GsH" secondAttribute="trailing" constant="8" id="DB9-J9-Oey"/>
                     <constraint firstItem="jPc-ex-5e8" firstAttribute="trailing" secondItem="V2O-pn-70g" secondAttribute="trailing" id="IBg-yx-LOR"/>
-                    <constraint firstItem="V2O-pn-70g" firstAttribute="top" secondItem="u3g-VF-wwF" secondAttribute="bottom" constant="8" id="Ses-OW-up3"/>
+                    <constraint firstItem="V2O-pn-70g" firstAttribute="top" secondItem="u3g-VF-wwF" secondAttribute="bottom" constant="10" id="Ses-OW-up3"/>
                     <constraint firstItem="mx0-WY-ylC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="XDy-cw-Z67"/>
                     <constraint firstItem="jPc-ex-5e8" firstAttribute="top" secondItem="V2O-pn-70g" secondAttribute="bottom" constant="8" id="awG-ut-tmp"/>
-                    <constraint firstAttribute="trailing" secondItem="u3g-VF-wwF" secondAttribute="trailing" constant="16" id="ayn-rf-TLo"/>
                     <constraint firstItem="nM3-k8-qWl" firstAttribute="centerY" secondItem="ahJ-bU-GsH" secondAttribute="centerY" id="bYD-8k-w1o"/>
+                    <constraint firstAttribute="trailing" secondItem="u3g-VF-wwF" secondAttribute="trailing" constant="16" id="ciI-1S-deg"/>
                     <constraint firstItem="u3g-VF-wwF" firstAttribute="top" secondItem="ahJ-bU-GsH" secondAttribute="bottom" constant="8" id="fwO-bT-bIw"/>
-                    <constraint firstItem="V2O-pn-70g" firstAttribute="trailing" secondItem="u3g-VF-wwF" secondAttribute="trailing" constant="-4" id="jU1-1E-HTH"/>
                     <constraint firstItem="ahJ-bU-GsH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="kgF-kD-dUB"/>
-                    <constraint firstItem="u3g-VF-wwF" firstAttribute="leading" secondItem="ahJ-bU-GsH" secondAttribute="leading" id="nh3-T5-vtm"/>
+                    <constraint firstItem="u3g-VF-wwF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="nM4-mS-c8c"/>
                     <constraint firstItem="ahJ-bU-GsH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="oLB-Ky-Dhj"/>
                     <constraint firstItem="jPc-ex-5e8" firstAttribute="leading" secondItem="V2O-pn-70g" secondAttribute="leading" id="xQj-gT-Q2h"/>
                     <constraint firstAttribute="trailing" secondItem="mx0-WY-ylC" secondAttribute="trailing" id="xt4-DX-HP0"/>
