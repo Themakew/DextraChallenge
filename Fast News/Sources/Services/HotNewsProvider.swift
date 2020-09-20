@@ -14,6 +14,8 @@ typealias HotNewsCallback = ( () throws -> [HotNews]) -> Void
 typealias HotNewsCommentsCallback = ( () throws -> [Comment]) -> Void
 typealias HotNewsImageCallBack = ( () throws -> Data) -> Void
 
+// MARK: -
+
 class HotNewsProvider {
     
     // MARK: - Properties -
@@ -88,8 +90,7 @@ class HotNewsProvider {
         }
     }
     
-    func hotNewsComments(id: String, completion: @escaping HotNewsCommentsCallback) {
-        let requestString = EndPoint.kBaseURL.path + EndPoint.kCommentsEndpoint(id: id).path
+    func hotNewsComments(requestString: String, completion: @escaping HotNewsCommentsCallback) {
         
         do {
             let requestURL = try requestString.asURL()

@@ -51,7 +51,8 @@ class FeedDetailsViewController: UIViewController {
     // MARK: - Private Methods -
     
     private func fetchNewsDetail() {
-        HotNewsProvider.shared.hotNewsComments(id: hotNewsViewModel?.id ?? "") { [weak self] (completion) in
+        let id = hotNewsViewModel?.id ?? ""
+        HotNewsProvider.shared.hotNewsComments(requestString: (EndPoint.kBaseURL.path + EndPoint.kCommentsEndpoint(id: id).path)) { [weak self] (completion) in
             guard let self = self else { return }
             
             do {
