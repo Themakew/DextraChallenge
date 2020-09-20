@@ -8,6 +8,7 @@ target 'Fast News' do
   # Pods for Fast News
     pod 'Alamofire'
     pod 'SwiftLint'
+    pod 'Mocker', '~> 1.0.0'
 
   target 'Fast NewsTests' do
     inherit! :search_paths

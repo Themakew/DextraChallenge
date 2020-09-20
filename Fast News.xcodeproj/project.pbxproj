@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5BE18F4B6D78682508383294 /* Pods_Fast_NewsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC7A0BF16E18EB9FDF7EA8A0 /* Pods_Fast_NewsUITests.framework */; };
+		5F1BB7362517B66200A543E5 /* HotNewsProviderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1BB7352517B66200A543E5 /* HotNewsProviderTest.swift */; };
 		5FF39D532515731900D8B168 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF39D522515731900D8B168 /* EndPoint.swift */; };
 		5FF39D7A251697A400D8B168 /* HotNewsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF39D79251697A400D8B168 /* HotNewsProvider.swift */; };
 		94E705BA50FC4B05C834D212 /* Pods_Fast_NewsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68E514EA261D3FA9642D06EE /* Pods_Fast_NewsTests.framework */; };
@@ -60,6 +61,7 @@
 /* Begin PBXFileReference section */
 		526215A6F93AD27F7E06CB76 /* Pods-Fast NewsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fast NewsUITests.debug.xcconfig"; path = "Target Support Files/Pods-Fast NewsUITests/Pods-Fast NewsUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5EE6AB26323769D03C8BADE1 /* Pods_Fast_News.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fast_News.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F1BB7352517B66200A543E5 /* HotNewsProviderTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotNewsProviderTest.swift; sourceTree = "<group>"; };
 		5FF39D522515731900D8B168 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		5FF39D79251697A400D8B168 /* HotNewsProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotNewsProvider.swift; sourceTree = "<group>"; };
 		60B5C99E0E04CE2DCFBF9873 /* Pods-Fast NewsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fast NewsTests.debug.xcconfig"; path = "Target Support Files/Pods-Fast NewsTests/Pods-Fast NewsTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -141,6 +143,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5F1BB7342517B64300A543E5 /* ServicesTests */ = {
+			isa = PBXGroup;
+			children = (
+				5F1BB7352517B66200A543E5 /* HotNewsProviderTest.swift */,
+			);
+			path = ServicesTests;
+			sourceTree = "<group>";
+		};
 		5FF39D1625156D6800D8B168 /* Layout */ = {
 			isa = PBXGroup;
 			children = (
@@ -207,6 +217,7 @@
 		E789E89E232F47A50091660E /* Fast NewsTests */ = {
 			isa = PBXGroup;
 			children = (
+				5F1BB7342517B64300A543E5 /* ServicesTests */,
 				E789E89F232F47A50091660E /* Fast_NewsTests.swift */,
 				E789E8A1232F47A50091660E /* Info.plist */,
 			);
@@ -610,6 +621,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E789E8A0232F47A50091660E /* Fast_NewsTests.swift in Sources */,
+				5F1BB7362517B66200A543E5 /* HotNewsProviderTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -824,7 +836,9 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CSD6NA874L;
 				INFOPLIST_FILE = "Fast NewsTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -845,7 +859,9 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CSD6NA874L;
 				INFOPLIST_FILE = "Fast NewsTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -866,6 +882,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CSD6NA874L;
 				INFOPLIST_FILE = "Fast NewsUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -886,6 +903,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CSD6NA874L;
 				INFOPLIST_FILE = "Fast NewsUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

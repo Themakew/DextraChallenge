@@ -1,21 +1,25 @@
 PODS:
   - Alamofire (4.9.0)
+  - Mocker (1.0.0)
   - SwiftLint (0.39.2)
 
 DEPENDENCIES:
   - Alamofire
+  - Mocker (~> 1.0.0)
   - SwiftLint
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Alamofire
   trunk:
+    - Mocker
     - SwiftLint
 
 SPEC CHECKSUMS:
   Alamofire: afc3e7c6db61476cb45cdd23fed06bad03bbc321
+  Mocker: 58560cc516f6240e92492dad66f295e7cdd7cdb2
   SwiftLint: 22ccbbe3b8008684be5955693bab135e0ed6a447
 
-PODFILE CHECKSUM: 81b1df46a72eae7bc7d88b029b0a8afab9a35ca8
+PODFILE CHECKSUM: 3b116f3f40154c740006aff9c80c47a85b4d439e
 
 COCOAPODS: 1.9.2

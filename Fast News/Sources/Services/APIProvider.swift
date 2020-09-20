@@ -14,30 +14,20 @@ class APIProvider {
     // MARK: - Constants
     
     private let kBaseURL = "https://www.reddit.com"
-    private let kTimeout = 30
     
     // MARK: - Properties -
     
     let sessionManager: Alamofire.SessionManager
     
-    // MARK: - Public Methods -
+    // MARK: - Init -
     
-    func baseURL() -> String {
-        return kBaseURL
+    init(configuration: URLSessionConfiguration) {
+        sessionManager = Alamofire.SessionManager(configuration: configuration)
     }
+    
+    // MARK: - Public Methods -
     
     func baseHeader() -> HTTPHeaders {
         return [:]
-    }
-    
-    // MARK: - Singleton -
-    
-    static let shared = APIProvider()
-    
-    private init() {
-        let configuration = URLSessionConfiguration.default
-        configuration.timeoutIntervalForRequest = TimeInterval(kTimeout)
-        configuration.timeoutIntervalForResource = TimeInterval(kTimeout)
-        sessionManager = Alamofire.SessionManager(configuration: configuration)
     }
 }

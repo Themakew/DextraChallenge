@@ -23,27 +23,34 @@ class HotNewsProvider {
     private let kLimitValue = 5
     private let kAfterKey = "after"
     private var kAfterValue = ""
-    
-    private let alamofire = APIProvider.shared.sessionManager
+    private let kTimeout = 30
+    private let alamofire: APIProvider
     
     // MARK: - Singleton -
     
-    static let shared: HotNewsProvider = HotNewsProvider()
+    static let shared: HotNewsProvider = HotNewsProvider(configuration: URLSessionConfiguration.default)
+    
+    // MARK: - Init -
+    
+    init(configuration: URLSessionConfiguration) {
+        configuration.timeoutIntervalForRequest = TimeInterval(kTimeout)
+        configuration.timeoutIntervalForResource = TimeInterval(kTimeout)
+        
+        alamofire = APIProvider(configuration: configuration)
+    }
     
     // MARK: - Public Methods -
     
-    func hotNews(completion: @escaping HotNewsCallback) {
-        let requestString = APIProvider.shared.baseURL() + EndPoint.kHotNewsEndpoint.path
-        
+    func hotNews(requestString: String, completion: @escaping HotNewsCallback) {
         let parameters: Parameters = [ kLimitKey: kLimitValue,
                                        kAfterKey: kAfterValue ]
         
         do {
             let requestURL = try requestString.asURL()
             
-            let headers: HTTPHeaders = APIProvider.shared.baseHeader()
+            let headers: HTTPHeaders = alamofire.baseHeader()
             
-            alamofire.request(requestURL, method: .get, parameters: parameters, encoding: URLEncoding.queryString, headers: headers).responseJSON { (response) in
+            alamofire.sessionManager.request(requestURL, method: .get, parameters: parameters, encoding: URLEncoding.queryString, headers: headers).responseJSON { (response) in
                 
                 switch response.result {
                 case .success:
@@ -82,15 +89,14 @@ class HotNewsProvider {
     }
     
     func hotNewsComments(id: String, completion: @escaping HotNewsCommentsCallback) {
-        let endpoint = EndPoint.kCommentsEndpoint(id: id).path
-        let requestString = APIProvider.shared.baseURL() + endpoint
+        let requestString = EndPoint.kBaseURL.path + EndPoint.kCommentsEndpoint(id: id).path
         
         do {
             let requestURL = try requestString.asURL()
             
-            let headers: HTTPHeaders = APIProvider.shared.baseHeader()
+            let headers: HTTPHeaders = alamofire.baseHeader()
             
-            alamofire.request(requestURL, method: .get, parameters: nil, encoding: URLEncoding.queryString, headers: headers).responseJSON { (response) in
+            alamofire.sessionManager.request(requestURL, method: .get, parameters: nil, encoding: URLEncoding.queryString, headers: headers).responseJSON { (response) in
                 
                 switch response.result {
                 case .success:
@@ -131,7 +137,7 @@ class HotNewsProvider {
         do {
             let requestURL = try url.asURL()
             
-            alamofire.request(requestURL).responseData(completionHandler: { (response) in
+            alamofire.sessionManager.request(requestURL).responseData(completionHandler: { (response) in
                 switch response.result {
                 case .success:
                     if let data = response.data {

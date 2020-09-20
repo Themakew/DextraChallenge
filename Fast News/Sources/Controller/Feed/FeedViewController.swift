@@ -14,7 +14,11 @@ class FeedViewController: UIViewController {
     
     // MARK: - Constants -
     
-    let kToDetails: String = "toDetails"
+    private let kToDetails: String = "toDetails"
+    private let kLimitKey = "limit"
+    private let kLimitValue = 5
+    private let kAfterKey = "after"
+    private var kAfterValue = ""
     
     // MARK: - Properties -
     
@@ -64,7 +68,7 @@ class FeedViewController: UIViewController {
     // MARK: - Private Methods -
     
     private func fetchFeed() {
-        HotNewsProvider.shared.hotNews { [weak self] (completion) in
+        HotNewsProvider.shared.hotNews(requestString: EndPoint.kBaseURL.path + EndPoint.kHotNewsEndpoint.path) { [weak self] (completion) in
             guard let self = self else { return }
             
             do {

@@ -14,6 +14,7 @@ enum EndPoint {
     
     case kHotNewsEndpoint
     case kCommentsEndpoint(id: String)
+    case kBaseURL
     
     var path: String {
         switch self {
@@ -21,6 +22,8 @@ enum EndPoint {
             return "/r/ios/hot/.json"
         case .kCommentsEndpoint(let id):
             return String(format: "/r/ios/comments/%@.json", id)
+        case .kBaseURL:
+            return "https://www.reddit.com"
         }
     }
 }
