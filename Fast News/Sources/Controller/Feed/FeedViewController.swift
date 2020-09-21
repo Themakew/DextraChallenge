@@ -15,10 +15,6 @@ class FeedViewController: UIViewController {
     // MARK: - Constants -
     
     private let kToDetails: String = "toDetails"
-    private let kLimitKey = "limit"
-    private let kLimitValue = 5
-    private let kAfterKey = "after"
-    private var kAfterValue = ""
     
     // MARK: - Properties -
     
@@ -108,5 +104,10 @@ extension FeedViewController: FeedViewDelegate {
     
     func didTouch(cell: FeedCell, indexPath: IndexPath) {
         self.performSegue(withIdentifier: kToDetails, sender: self.mainView.viewModels[indexPath.row])
+    }
+    
+    func didTouchShare(url: URL) {
+        let items: [Any] = [url]
+        Utils.shareInformation(viewController: self, items: items)
     }
 }

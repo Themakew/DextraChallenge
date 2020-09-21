@@ -11,6 +11,7 @@ import UIKit
 
 protocol FeedViewDelegate {
     func didTouch(cell: FeedCell, indexPath: IndexPath)
+    func didTouchShare(url: URL)
     func didGetInTheBottom()
     
     func getImage(imageUrl: String, completionHandler: @escaping (UIImage) -> Void)
@@ -20,7 +21,7 @@ protocol FeedViewDelegate {
 
 extension FeedViewDelegate {
     func didGetInTheBottom() {}
-    
+    func didTouchShare(url: URL) {}
     func getImage(imageUrl: String, completionHandler: @escaping (UIImage) -> Void) {}
 }
 
@@ -108,5 +109,25 @@ extension FeedView: UITableViewDelegate, UITableViewDataSource {
             activityIndicatorView.startAnimating()
             delegate?.didGetInTheBottom()
         }
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let share = UIContextualAction(style: .normal, title: "Share") { _, _, booleanValue in
+            let selectedNews = self.viewModels[indexPath.row]
+            guard let url = URL(string: selectedNews.url) else {
+                booleanValue(true)
+                return
+            }
+            
+            self.delegate?.didTouchShare(url: url)
+            booleanValue(true)
+        }
+        
+        share.image = UIImage(named: "share")
+        share.backgroundColor = .systemBlue
+        
+        let swipeActions = UISwipeActionsConfiguration(actions: [share])
+        swipeActions.performsFirstActionWithFullSwipe = true
+        return swipeActions
     }
 }

@@ -2,7 +2,7 @@
 //  HotNewsProvider.swift
 //  Fast NewsTests
 //
-//  Created by Foton on 20/09/20.
+//  Created by Ruyther on 20/09/20.
 //  Copyright © 2020 Lucas Moreton. All rights reserved.
 //
 
